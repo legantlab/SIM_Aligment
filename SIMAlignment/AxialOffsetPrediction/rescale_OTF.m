@@ -1,4 +1,10 @@
 function O_scaled = rescale_OTF(O,pxl_dim_PSF,data_dim,pxl_dim_data)
+% This function rescale pixel size in the calibrated OTF to match the acquired image
+% O: calibrated OTF
+% pxl_dim_PSF: pixel size of calibrated PSF
+% data_dim: size of acquired image in [y,x,z]
+% pxl_dim_data: pixel size of acquired image
+
 [ny_PSF,nx_PSF,nz_PSF,norders] = size(O);
 ny_data = data_dim(1);
 nx_data = data_dim(2);

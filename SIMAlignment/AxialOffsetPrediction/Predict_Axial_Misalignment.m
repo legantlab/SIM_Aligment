@@ -1,11 +1,14 @@
-% applied clipped mask to calculate residual phase error
+% Script for predicting the correct axial misalignment
+% Results are in r_id and c_id
 %% Load unshifted OTF library
-OTF_lib_path = 'V:\Yu\SIM_Alignment_Paper\DemoCode\DemoData\PSF_lib\OTF_library.mat';  % file name is Olib
+% path for the OTF library (generated with the script in GeneratePSFLibrary folder)
+OTF_lib_path = 'V:\Yu\SIM_Alignment_Paper\DemoCode\DemoData\PSF_lib\OTF_library.mat';
 
 load(OTF_lib_path);
 n_phase = size(Olib,5);
 n_level = size(Olib,4);
 
+% foler for SIM data
 folder = 'V:\Yu\SIM_Alignment_Paper\DemoCode\DemoData\SIM';
 
 pxl_dim_PSF = [0.11,0.11,0.1072];     %pixel size of PSF in [x,y,z]
@@ -151,8 +154,8 @@ c_id = c_id+(n_phase+1)/2-crop_range;
 winsize = 7;
 [r_id_primary,c_id_primary] = fit_2D_phasemap(phase_dist,r_id,c_id,winsize);
 
-r_id = r_id_primary;
-c_id = c_id_primary;
+r_id = r_id_primary;  % minimum row index
+c_id = c_id_primary;  % minimum column index
 
 save([Sample_filename(1:end-4) '.mat'],'phase_dist','r_id','c_id','n_phase');
 %% calculate euladician distances

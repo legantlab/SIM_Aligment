@@ -1,4 +1,11 @@
 function [r_id_fit,c_id_fit] = fit_2D_phasemap(phase_map, r_id,c_id,winsize)
+% find the minimum location within the 2D residual phase map using 2D
+% Gaussian fit with initial guess
+% Input:
+% phase_map: 2D residual phase map
+% r_id: initial guess for the row index of the minimum position
+% c_id: initial guess for the column index of the minimum position
+% winsize: window size for fitting the minimum location
 
 r_min = max(r_id - winsize,1);
 r_max = min(r_id + winsize,size(phase_map,1));

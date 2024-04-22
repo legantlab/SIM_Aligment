@@ -1,4 +1,8 @@
 function O = seperate_sample(PSF_filename, n_phase)
+% This function separate different frequency components of acquired image
+% PSF_filename: path to the image
+% n_phase: number of phases
+
 %% read image stack
 %PSF_filename = 'Z:\Yu\2020_05_21(LLS_SIM)\NAp55p50\RAW_z_stack_latticeSIM_z100nm_dphi_234nm_6_CamB_ch0_CAM1_stack0000_560nm_0000000msec_0075656857msecAbs_000x_000y_000z_0000t.tif';
 img_num = length(imfinfo(PSF_filename));
